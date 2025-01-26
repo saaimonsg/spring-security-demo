@@ -1,0 +1,29 @@
+server:
+  port: 8080
+  servlet:
+    context-path: ""
+
+spring:
+  # https://docs.spring.io/spring-boot/docs/1.5.16.RELEASE/reference/html/using-boot-devtools.html
+  datasource:
+    url: "jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:db_default}"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: "${MYSQL_USERNAME:mysql}"
+    password: "${MYSQL_PASSWORD:root}"
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      generate-ddl: true
+    properties:
+      show-sql: false
+      hibernate:
+        format_sql: false
+        show_sql: false
+    database-platform: org.hibernate.dialect.MySQLDialect
+    database: mysql
+
+logging:
+  level:
+    web: debug
+#    root: debug
